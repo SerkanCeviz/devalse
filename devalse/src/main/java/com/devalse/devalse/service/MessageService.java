@@ -1,11 +1,11 @@
-package service;
+package com.devalse.devalse.service;
 
+import com.devalse.devalse.model.MessageDto;
+import com.devalse.devalse.model.mapper.MessageMapper;
+import com.devalse.devalse.repository.MessageRepository;
 import lombok.RequiredArgsConstructor;
-import model.MessageDto;
-import model.mapper.MessageMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.MessageRepository;
 
 import java.util.List;
 
@@ -13,15 +13,14 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class MessageService {
-    private final MessageMapper mapper;
     private final MessageRepository repository;
 
     public List<MessageDto> getAllMessages() {
-        return mapper.entityListtoDtoList(repository.findAll());
+        return MessageMapper.INSTANCE.entityListtoDtoList(repository.findAll());
     }
 
     @Transactional
     public MessageDto save(MessageDto dto) {
-        return mapper.entitytoDto(repository.save(mapper.dtotoEntity(dto)));
+        return MessageMapper.INSTANCE.entitytoDto(repository.save(MessageMapper.INSTANCE.dtotoEntity(dto)));
     }
 }

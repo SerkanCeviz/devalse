@@ -1,4 +1,4 @@
-package entity;
+package com.devalse.devalse.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;

@@ -1,12 +1,12 @@
-package service;
+package com.devalse.devalse.service;
 
-import entity.Product;
+import com.devalse.devalse.entity.Product;
 import lombok.RequiredArgsConstructor;
-import model.ProductDto;
-import model.mapper.ProductMapper;
+import com.devalse.devalse.model.ProductDto;
+import com.devalse.devalse.model.mapper.ProductMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.ProductRepository;
+import com.devalse.devalse.repository.ProductRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,16 +16,15 @@ import java.util.UUID;
 @Transactional(readOnly = true)
 public class ProductService {
 
-    private final ProductMapper mapper;
     private final ProductRepository repository;
 
     public List<ProductDto> getAllProduct() {
-        return mapper.entityListtoDtoList(repository.findAll());
+        return ProductMapper.INSTANCE.entityListtoDtoList(repository.findAll());
     }
 
     @Transactional
     public ProductDto save(ProductDto dto) {
-        return mapper.entitytoDto(repository.save(mapper.dtotoEntity(dto)));
+        return ProductMapper.INSTANCE.entitytoDto(repository.save(ProductMapper.INSTANCE.dtotoEntity(dto)));
     }
 
     @Transactional

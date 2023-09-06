@@ -1,6 +1,6 @@
-package repository;
+package com.devalse.devalse.repository;
 
-import entity.Message;
+import com.devalse.devalse.entity.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

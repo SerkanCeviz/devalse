@@ -1,4 +1,4 @@
-package model;
+package com.devalse.devalse.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

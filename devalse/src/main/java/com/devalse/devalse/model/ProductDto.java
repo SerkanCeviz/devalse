@@ -1,12 +1,6 @@
-package model;
+package com.devalse.devalse.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import entity.Category;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import com.devalse.devalse.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

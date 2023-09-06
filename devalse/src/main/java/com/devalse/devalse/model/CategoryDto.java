@@ -1,6 +1,6 @@
-package model;
+package com.devalse.devalse.model;
 
-import entity.Product;
+import com.devalse.devalse.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

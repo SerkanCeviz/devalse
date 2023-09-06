@@ -1,12 +1,12 @@
-package service;
+package com.devalse.devalse.service;
 
-import entity.Category;
+import com.devalse.devalse.entity.Category;
+import com.devalse.devalse.model.CategoryDto;
+import com.devalse.devalse.model.mapper.CategoryMapper;
+import com.devalse.devalse.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
-import model.CategoryDto;
-import model.mapper.CategoryMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.CategoryRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,15 +16,14 @@ import java.util.UUID;
 @Transactional(readOnly = true)
 public class CategoryService {
     private final CategoryRepository repository;
-    private final CategoryMapper categoryMapper;
 
     public List<CategoryDto> getAllCategory() {
-        return categoryMapper.entityListtoDtoList(repository.findAll());
+        return CategoryMapper.INSTANCE.entityListtoDtoList(repository.findAll());
     }
 
     @Transactional
     public CategoryDto save(CategoryDto dto) {
-        return categoryMapper.entitytoDto(repository.save(categoryMapper.dtotoEntity(dto)));
+        return CategoryMapper.INSTANCE.entitytoDto(repository.save(CategoryMapper.INSTANCE.dtotoEntity(dto)));
     }
 
     @Transactional
