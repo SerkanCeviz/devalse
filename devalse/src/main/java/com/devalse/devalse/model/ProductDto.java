@@ -1,6 +1,5 @@
 package com.devalse.devalse.model;
 
-import com.devalse.devalse.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,6 +23,4 @@ public class ProductDto {
     private BigDecimal price;
 
     private String imagePath;
-
-    Category category;
 }
